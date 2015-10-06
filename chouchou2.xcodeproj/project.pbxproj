@@ -1,0 +1,555 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E52C31EC1BC1A5B4007F2E28 /* MemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C31EB1BC1A5B4007F2E28 /* MemberViewController.m */; };
+		E52C31EF1BC1AAE7007F2E28 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C31EE1BC1AAE7007F2E28 /* ResultViewController.m */; };
+		E52C31F11BC1AEBA007F2E28 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52C31F01BC1AEBA007F2E28 /* AssetsLibrary.framework */; };
+		E52C31FA1BC35DF8007F2E28 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C31F91BC35DF8007F2E28 /* Group.m */; };
+		E52C31FD1BC35DF9007F2E28 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C31FC1BC35DF9007F2E28 /* Member.m */; };
+		E53C61AD1BC1519100C0C156 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C61AC1BC1519100C0C156 /* main.m */; };
+		E53C61B01BC1519100C0C156 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C61AF1BC1519100C0C156 /* AppDelegate.m */; };
+		E53C61B31BC1519100C0C156 /* chouchou2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E53C61B11BC1519100C0C156 /* chouchou2.xcdatamodeld */; };
+		E53C61B61BC1519100C0C156 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C61B51BC1519100C0C156 /* ViewController.m */; };
+		E53C61B91BC1519100C0C156 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E53C61B71BC1519100C0C156 /* Main.storyboard */; };
+		E53C61BB1BC1519100C0C156 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E53C61BA1BC1519100C0C156 /* Images.xcassets */; };
+		E53C61BE1BC1519100C0C156 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53C61BC1BC1519100C0C156 /* LaunchScreen.xib */; };
+		E53C61CA1BC1519100C0C156 /* chouchou2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C61C91BC1519100C0C156 /* chouchou2Tests.m */; };
+		E53C61D51BC1535A00C0C156 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C61D41BC1535A00C0C156 /* SecondViewController.m */; };
+		E53C61D71BC15FCD00C0C156 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53C61D61BC15FCD00C0C156 /* CoreData.framework */; };
+		E53C61DD1BC1900900C0C156 /* TinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C61DC1BC1900900C0C156 /* TinderViewController.m */; };
+		FEEA12AB7FB923B7B4736FBD /* libPods-chouchou2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C11E847EE8B1449977094506 /* libPods-chouchou2.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E53C61C41BC1519100C0C156 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E53C619F1BC1519100C0C156 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E53C61A61BC1519100C0C156;
+			remoteInfo = chouchou2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1B08ED54A110004E07B1223C /* Pods-chouchou2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chouchou2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chouchou2/Pods-chouchou2.debug.xcconfig"; sourceTree = "<group>"; };
+		5054CF0B05D59015A4C862A8 /* Pods-chouchou2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chouchou2.release.xcconfig"; path = "Pods/Target Support Files/Pods-chouchou2/Pods-chouchou2.release.xcconfig"; sourceTree = "<group>"; };
+		C11E847EE8B1449977094506 /* libPods-chouchou2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-chouchou2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E52C31EA1BC1A5B4007F2E28 /* MemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberViewController.h; sourceTree = "<group>"; };
+		E52C31EB1BC1A5B4007F2E28 /* MemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberViewController.m; sourceTree = "<group>"; };
+		E52C31ED1BC1AAE7007F2E28 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		E52C31EE1BC1AAE7007F2E28 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		E52C31F01BC1AEBA007F2E28 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		E52C31F81BC35DF8007F2E28 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		E52C31F91BC35DF8007F2E28 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		E52C31FB1BC35DF9007F2E28 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
+		E52C31FC1BC35DF9007F2E28 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
+		E53C61A71BC1519100C0C156 /* chouchou2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chouchou2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E53C61AB1BC1519100C0C156 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E53C61AC1BC1519100C0C156 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E53C61AE1BC1519100C0C156 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E53C61AF1BC1519100C0C156 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E53C61B21BC1519100C0C156 /* chouchou2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = chouchou2.xcdatamodel; sourceTree = "<group>"; };
+		E53C61B41BC1519100C0C156 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E53C61B51BC1519100C0C156 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E53C61B81BC1519100C0C156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E53C61BA1BC1519100C0C156 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E53C61BD1BC1519100C0C156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		E53C61C31BC1519100C0C156 /* chouchou2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chouchou2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E53C61C81BC1519100C0C156 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E53C61C91BC1519100C0C156 /* chouchou2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chouchou2Tests.m; sourceTree = "<group>"; };
+		E53C61D31BC1535A00C0C156 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		E53C61D41BC1535A00C0C156 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		E53C61D61BC15FCD00C0C156 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E53C61DB1BC1900900C0C156 /* TinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinderViewController.h; sourceTree = "<group>"; };
+		E53C61DC1BC1900900C0C156 /* TinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TinderViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E53C61A41BC1519100C0C156 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E52C31F11BC1AEBA007F2E28 /* AssetsLibrary.framework in Frameworks */,
+				E53C61D71BC15FCD00C0C156 /* CoreData.framework in Frameworks */,
+				FEEA12AB7FB923B7B4736FBD /* libPods-chouchou2.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E53C61C01BC1519100C0C156 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8D56A8B110A2BAF776E04D5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1B08ED54A110004E07B1223C /* Pods-chouchou2.debug.xcconfig */,
+				5054CF0B05D59015A4C862A8 /* Pods-chouchou2.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E349C22D7363F6EA269416C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E52C31F01BC1AEBA007F2E28 /* AssetsLibrary.framework */,
+				C11E847EE8B1449977094506 /* libPods-chouchou2.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E53C619E1BC1519100C0C156 = {
+			isa = PBXGroup;
+			children = (
+				E53C61D61BC15FCD00C0C156 /* CoreData.framework */,
+				E53C61A91BC1519100C0C156 /* chouchou2 */,
+				E53C61C61BC1519100C0C156 /* chouchou2Tests */,
+				E53C61A81BC1519100C0C156 /* Products */,
+				8D56A8B110A2BAF776E04D5F /* Pods */,
+				E349C22D7363F6EA269416C6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E53C61A81BC1519100C0C156 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E53C61A71BC1519100C0C156 /* chouchou2.app */,
+				E53C61C31BC1519100C0C156 /* chouchou2Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E53C61A91BC1519100C0C156 /* chouchou2 */ = {
+			isa = PBXGroup;
+			children = (
+				E53C61AE1BC1519100C0C156 /* AppDelegate.h */,
+				E53C61AF1BC1519100C0C156 /* AppDelegate.m */,
+				E53C61B41BC1519100C0C156 /* ViewController.h */,
+				E53C61B51BC1519100C0C156 /* ViewController.m */,
+				E53C61D31BC1535A00C0C156 /* SecondViewController.h */,
+				E53C61D41BC1535A00C0C156 /* SecondViewController.m */,
+				E52C31EA1BC1A5B4007F2E28 /* MemberViewController.h */,
+				E52C31EB1BC1A5B4007F2E28 /* MemberViewController.m */,
+				E53C61DB1BC1900900C0C156 /* TinderViewController.h */,
+				E53C61DC1BC1900900C0C156 /* TinderViewController.m */,
+				E52C31ED1BC1AAE7007F2E28 /* ResultViewController.h */,
+				E52C31EE1BC1AAE7007F2E28 /* ResultViewController.m */,
+				E53C61B71BC1519100C0C156 /* Main.storyboard */,
+				E53C61BA1BC1519100C0C156 /* Images.xcassets */,
+				E53C61BC1BC1519100C0C156 /* LaunchScreen.xib */,
+				E53C61B11BC1519100C0C156 /* chouchou2.xcdatamodeld */,
+				E52C31FB1BC35DF9007F2E28 /* Member.h */,
+				E52C31FC1BC35DF9007F2E28 /* Member.m */,
+				E52C31F81BC35DF8007F2E28 /* Group.h */,
+				E52C31F91BC35DF8007F2E28 /* Group.m */,
+				E53C61AA1BC1519100C0C156 /* Supporting Files */,
+			);
+			path = chouchou2;
+			sourceTree = "<group>";
+		};
+		E53C61AA1BC1519100C0C156 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E53C61AB1BC1519100C0C156 /* Info.plist */,
+				E53C61AC1BC1519100C0C156 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E53C61C61BC1519100C0C156 /* chouchou2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E53C61C91BC1519100C0C156 /* chouchou2Tests.m */,
+				E53C61C71BC1519100C0C156 /* Supporting Files */,
+			);
+			path = chouchou2Tests;
+			sourceTree = "<group>";
+		};
+		E53C61C71BC1519100C0C156 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E53C61C81BC1519100C0C156 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E53C61A61BC1519100C0C156 /* chouchou2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E53C61CD1BC1519100C0C156 /* Build configuration list for PBXNativeTarget "chouchou2" */;
+			buildPhases = (
+				61FCA1A93218B5BDC501A2BE /* Check Pods Manifest.lock */,
+				E53C61A31BC1519100C0C156 /* Sources */,
+				E53C61A41BC1519100C0C156 /* Frameworks */,
+				E53C61A51BC1519100C0C156 /* Resources */,
+				DB504D30B1148D3AE41129F9 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = chouchou2;
+			productName = chouchou2;
+			productReference = E53C61A71BC1519100C0C156 /* chouchou2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E53C61C21BC1519100C0C156 /* chouchou2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E53C61D01BC1519100C0C156 /* Build configuration list for PBXNativeTarget "chouchou2Tests" */;
+			buildPhases = (
+				E53C61BF1BC1519100C0C156 /* Sources */,
+				E53C61C01BC1519100C0C156 /* Frameworks */,
+				E53C61C11BC1519100C0C156 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E53C61C51BC1519100C0C156 /* PBXTargetDependency */,
+			);
+			name = chouchou2Tests;
+			productName = chouchou2Tests;
+			productReference = E53C61C31BC1519100C0C156 /* chouchou2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E53C619F1BC1519100C0C156 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "En Yamamoto";
+				TargetAttributes = {
+					E53C61A61BC1519100C0C156 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					E53C61C21BC1519100C0C156 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = E53C61A61BC1519100C0C156;
+					};
+				};
+			};
+			buildConfigurationList = E53C61A21BC1519100C0C156 /* Build configuration list for PBXProject "chouchou2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E53C619E1BC1519100C0C156;
+			productRefGroup = E53C61A81BC1519100C0C156 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E53C61A61BC1519100C0C156 /* chouchou2 */,
+				E53C61C21BC1519100C0C156 /* chouchou2Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E53C61A51BC1519100C0C156 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E53C61B91BC1519100C0C156 /* Main.storyboard in Resources */,
+				E53C61BE1BC1519100C0C156 /* LaunchScreen.xib in Resources */,
+				E53C61BB1BC1519100C0C156 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E53C61C11BC1519100C0C156 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		61FCA1A93218B5BDC501A2BE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DB504D30B1148D3AE41129F9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-chouchou2/Pods-chouchou2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E53C61A31BC1519100C0C156 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E52C31FA1BC35DF8007F2E28 /* Group.m in Sources */,
+				E52C31EC1BC1A5B4007F2E28 /* MemberViewController.m in Sources */,
+				E53C61D51BC1535A00C0C156 /* SecondViewController.m in Sources */,
+				E53C61B31BC1519100C0C156 /* chouchou2.xcdatamodeld in Sources */,
+				E53C61DD1BC1900900C0C156 /* TinderViewController.m in Sources */,
+				E53C61B01BC1519100C0C156 /* AppDelegate.m in Sources */,
+				E53C61B61BC1519100C0C156 /* ViewController.m in Sources */,
+				E53C61AD1BC1519100C0C156 /* main.m in Sources */,
+				E52C31EF1BC1AAE7007F2E28 /* ResultViewController.m in Sources */,
+				E52C31FD1BC35DF9007F2E28 /* Member.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E53C61BF1BC1519100C0C156 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E53C61CA1BC1519100C0C156 /* chouchou2Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E53C61C51BC1519100C0C156 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E53C61A61BC1519100C0C156 /* chouchou2 */;
+			targetProxy = E53C61C41BC1519100C0C156 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E53C61B71BC1519100C0C156 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E53C61B81BC1519100C0C156 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E53C61BC1BC1519100C0C156 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E53C61BD1BC1519100C0C156 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E53C61CB1BC1519100C0C156 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E53C61CC1BC1519100C0C156 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E53C61CE1BC1519100C0C156 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B08ED54A110004E07B1223C /* Pods-chouchou2.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = chouchou2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E53C61CF1BC1519100C0C156 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5054CF0B05D59015A4C862A8 /* Pods-chouchou2.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = chouchou2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E53C61D11BC1519100C0C156 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = chouchou2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/chouchou2.app/chouchou2";
+			};
+			name = Debug;
+		};
+		E53C61D21BC1519100C0C156 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = chouchou2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/chouchou2.app/chouchou2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E53C61A21BC1519100C0C156 /* Build configuration list for PBXProject "chouchou2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E53C61CB1BC1519100C0C156 /* Debug */,
+				E53C61CC1BC1519100C0C156 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E53C61CD1BC1519100C0C156 /* Build configuration list for PBXNativeTarget "chouchou2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E53C61CE1BC1519100C0C156 /* Debug */,
+				E53C61CF1BC1519100C0C156 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E53C61D01BC1519100C0C156 /* Build configuration list for PBXNativeTarget "chouchou2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E53C61D11BC1519100C0C156 /* Debug */,
+				E53C61D21BC1519100C0C156 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E53C61B11BC1519100C0C156 /* chouchou2.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E53C61B21BC1519100C0C156 /* chouchou2.xcdatamodel */,
+			);
+			currentVersion = E53C61B21BC1519100C0C156 /* chouchou2.xcdatamodel */;
+			path = chouchou2.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E53C619F1BC1519100C0C156 /* Project object */;
+}
