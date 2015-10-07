@@ -103,12 +103,13 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8aD-3W-Pb4">
-                                <rect key="frame" x="125" y="65" width="125" height="30"/>
-                                <state key="normal" title="Add New Member">
+                                <rect key="frame" x="125" y="60" width="134" height="32.5"/>
+                                <state key="normal" title="+Add New Member">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="addBtn:" destination="H2v-4V-x51" eventType="touchUpInside" id="CBB-di-eTo"/>
+                                    <segue destination="RkR-fV-i6n" kind="modal" id="IIv-6W-rFT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -155,18 +156,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTS-kD-zqj">
-                                <rect key="frame" x="71" y="295" width="240" height="223"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdT-Xy-CA2">
-                                <rect key="frame" x="174" y="580" width="34" height="30"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tapSaveBtn:" destination="RkR-fV-i6n" eventType="touchUpInside" id="m9m-l1-8pI"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51g-0s-fF0">
                                 <rect key="frame" x="126" y="218" width="142" height="30"/>
                                 <state key="normal" title="Choose Camera Roll">
@@ -174,6 +163,27 @@
                                 </state>
                                 <connections>
                                     <action selector="tapCameraBtn:" destination="RkR-fV-i6n" eventType="touchUpInside" id="B4h-RH-tCp"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTS-kD-zqj">
+                                <rect key="frame" x="71" y="295" width="240" height="223"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdT-Xy-CA2">
+                                <rect key="frame" x="71" y="588" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapSaveBtn:" destination="RkR-fV-i6n" eventType="touchUpInside" id="m9m-l1-8pI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BpF-wV-zDu">
+                                <rect key="frame" x="263" y="588" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelBtn:" destination="RkR-fV-i6n" eventType="touchUpInside" id="RCu-Ux-wzg"/>
                                 </connections>
                             </button>
                         </subviews>

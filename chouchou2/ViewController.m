@@ -27,6 +27,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    //Appdelegate初期化
+    _appdelegate = [[UIApplication sharedApplication]delegate];
+    
      [self getFriendsInAreaSelected];
     
     self.mainTable.delegate = self;
@@ -142,7 +145,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     //遷移したい先のviewcontrollerを指定
     TinderViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"TinderViewController"];
     //Push遷移
-    [self.navigationController pushViewController:VC animated:YES];
+    [[self navigationController] pushViewController:VC animated:YES];
 }
 
 
@@ -195,8 +198,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSLog(@"buttonYpush");
     //ボタンでindexPathRowを取得
-    UIButton *btn = (UIButton *)sender;
-    UITableViewCell *cell = (UITableViewCell *)[btn superview];
+//    UIButton *btn = (UIButton *)sender;
+    UITableViewCell *cell = [self findUITableViewCellFromSuperViewsForView:sender];
     int row = (int)[self.mainTable indexPathForCell:cell].row;
     NSLog(@"indexpath?:%d",row);
     SecondViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"SecondViewController"];
@@ -205,5 +208,20 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     VC.selectNum = row;
     //Push遷移
     [self.navigationController pushViewController:VC animated:YES];
+}
+
+//indexpathがとれない時このメソッドでとってきて、ボタンタッチで実行
+- (UITableViewCell *)findUITableViewCellFromSuperViewsForView:(id)view {
+    if (![view isKindOfClass:[UIView class]]) {
+        return nil;
+    }
+    UIView *superView = view;
+    while (superView) {
+        if ([superView isKindOfClass:[UITableViewCell class]]) {
+            break;
+        }
+        superView = [superView superview];
+    }
+    return (UITableViewCell *)superView;
 }
 @end

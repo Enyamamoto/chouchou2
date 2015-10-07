@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "Member.h"
+#import "MemberViewController.h"
 
 
 @interface SecondViewController : UIViewController<UINavigationControllerDelegate,UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate>

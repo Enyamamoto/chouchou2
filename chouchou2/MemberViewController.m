@@ -7,12 +7,18 @@
 //
 
 #import "MemberViewController.h"
+//データを扱うために
+#import "AppDelegate.h"
+#import "Member.h"
+#import "SecondViewController.h"
 
 @interface MemberViewController ()
 
 @end
 
 @implementation MemberViewController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -93,5 +99,35 @@ picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
 - (IBAction)endNameText:(id)sender {
 }
 - (IBAction)tapSaveBtn:(id)sender {
+    //グループの追加
+    // AppDelegateで宣言されているCoreData用のManagedObjectContextを取得
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    // インサートしたいデータを作成
+    //textviewに入力された名前
+    NSString *name = self.nameText.text;
+    NSString *image = _assetsUrl;
+    
+    // CoreDataにデータを保存する
+    Member *member = [NSEntityDescription insertNewObjectForEntityForName:@"Member" inManagedObjectContext:context];
+    
+    [member setName:name];
+    [member setImage:image];
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"%@", error);
+    } else {
+        NSLog(@"保存成功");
+    }
+    
+    //この一行でもどるボタン。子画面を閉じる。(Modalの画面遷移用)。completionは完了時どうしたいかを設定できる。
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)cancelBtn:(id)sender {
+    
+[self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

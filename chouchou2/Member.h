@@ -13,7 +13,7 @@
 @interface Member : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * id;
-@property (nonatomic, retain) NSNumber * group_id;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * image;
 
 @end

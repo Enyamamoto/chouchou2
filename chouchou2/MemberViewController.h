@@ -8,11 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <CoreData/CoreData.h>
+#import "Member.h"
+#import "SecondViewController.h"
 
-@interface MemberViewController : UIViewController<UINavigationControllerDelegate>{
+
+@interface MemberViewController : UIViewController<UINavigationControllerDelegate,NSFetchedResultsControllerDelegate>{
     NSString *_assetsUrl;//assetsUrlを格納するインスタンス
     ALAssetsLibrary *_library;//ALAssetsLibraryのインスタンス
+   
 }
+
+//データを取得するときに必要なオブジェクト
+@property(strong,nonatomic)NSFetchedResultsController *fetchedResultsController;
+//データを管理（CRUD)で必要なオブジェクト
+@property(strong,nonatomic)NSManagedObjectContext * managedObjectContext;
+@property(nonatomic,assign) int selectNum;
 @property (weak, nonatomic) IBOutlet UITextField *nameText;
 - (IBAction)endNameText:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *cameraBtn;
@@ -20,5 +31,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *myImage;
 @property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 - (IBAction)tapSaveBtn:(id)sender;
+- (IBAction)cancelBtn:(id)sender;
 
 @end

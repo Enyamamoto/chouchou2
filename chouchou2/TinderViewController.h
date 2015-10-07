@@ -9,10 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <MDCSwipeToChoose.h>
 #import "AppDelegate.h"
-#import "Group.h"
+#import "Member.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface TinderViewController : UIViewController
-<MDCSwipeToChooseDelegate>
+<MDCSwipeToChooseDelegate,NSFetchedResultsControllerDelegate>{
+    NSString *_assetsUrl;//assetsUrlを格納するインスタンス
+    ALAssetsLibrary *_library;//ALAssetsLibraryのインスタンス
+}
+//データを取得するときに必要なオブジェクト
+@property(strong,nonatomic)NSFetchedResultsController *fetchedResultsController;
+//データを管理（CRUD)で必要なオブジェクト
+@property(strong,nonatomic)NSManagedObjectContext * managedObjectContext;
 @property (weak, nonatomic) IBOutlet UIButton *attendanceBtn;
 - (IBAction)tapAttendanceBtn:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *memberLabel;

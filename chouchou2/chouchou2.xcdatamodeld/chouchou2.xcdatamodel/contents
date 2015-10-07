@@ -3,14 +3,16 @@
     <entity name="Group" representedClassName="Group" syncable="YES">
         <attribute name="groupName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Member" inverseName="relationship" inverseEntity="Member" syncable="YES"/>
     </entity>
     <entity name="Member" representedClassName="Member" syncable="YES">
-        <attribute name="group_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="relationship" inverseEntity="Group" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Group" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="Member" positionX="-63" positionY="0" width="128" height="90"/>
+        <element name="Group" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Member" positionX="-63" positionY="0" width="128" height="105"/>
     </elements>
 </model>

@@ -9,10 +9,11 @@
 #import "SecondViewController.h"
 #import "AppDelegate.h"
 #import "Member.h"
+#import "MemberViewController.h"
 
 
 @interface SecondViewController (){
-    NSArray *_memberArray;
+    NSMutableArray *_memberArray;
 }
 
 @end
@@ -23,15 +24,64 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
-    
     //ナビゲーションコントローラーにエリア名を指定
     self.navigationItem.title = @"Members";
     
     self.navigationController.delegate = self;
     
+    //配列を更新
+    [self getFriendsInAreaSelected];
+    
+    
+    NSLog(@"viewDidLoad");
+    
+    
     self.secondTable.delegate = self;
     self.secondTable.dataSource = self;
+}
+
+//他のviewから復帰した瞬間に発動
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    //配列を更新
+    [self getFriendsInAreaSelected];
+
+    
+    // テーブルビューを更新
+    [self.secondTable reloadData];
+    NSLog(@"viewWillAppear");
+}
+
+//selectAlldataで取り出したのを表示するメソッド
+-(void)getFriendsInAreaSelected{
+    
+    //    NSDictionary *options = @{@"group_id":[NSString stringWithFormat:@"%d",self.areaNum]};
+    _memberArray = [NSMutableArray new];
+    
+    _memberArray = [[self selectAllData:nil] mutableCopy];
+    
+}
+
+
+//Coredataに入ってるデータを取ってくる
+- (NSArray *)selectAllData:(NSDictionary *)options {
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    //fetch設定を生成
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Member"];
+    
+    
+    //sort条件を設定
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // managedObjectContextからデータを取得
+    NSArray *results = [context executeFetchRequest:fetchRequest error:nil];
+    
+    return results;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -39,14 +89,51 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //storyboadのIdentifierと一緒にする
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    //定数を宣言（static = 静的)
+    static NSString *CellIdentifer = @"Cell";
+    
+    //セルの再利用
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifer];
+    
+    if(cell == nil){
+        //セルの初期化とスタイルの決定
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifer];
     }
-    cell.textLabel.text = _memberArray[indexPath.row];
+    
+    Member *member = _memberArray[indexPath.row];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",member.name];
     return cell;
+}
+
+//ラインみたいなスライド削除
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //CoreDataから削除
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = [appDelegate managedObjectContext];
+        
+        Member *member = _memberArray[indexPath.row];
+        [context deleteObject:member];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"%@", error);
+        } else {
+            NSLog(@"削除完了");
+        }
+        
+        //表示側も配列からデータを削除することでCoreDataの状態を反映
+        [_memberArray removeObjectAtIndex:indexPath.row]; // 削除ボタンが押された行のデータを配列から削除します。
+        
+        //テーブルビューからも消します
+        [self.secondTable deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // ここは空のままでOKです。
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,5 +152,6 @@
 */
 
 - (IBAction)addBtn:(id)sender {
+    
 }
 @end

@@ -12,7 +12,7 @@
 @implementation Member
 
 @dynamic id;
-@dynamic group_id;
 @dynamic name;
+@dynamic image;
 
 @end
