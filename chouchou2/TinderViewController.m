@@ -12,11 +12,11 @@
 #import "Member.h"
 
 @interface TinderViewController (){
-    NSArray *picurl;
+    NSArray *_picurl;
     MDCSwipeToChooseView *_mdview;
     NSMutableArray *_coreAry;
     int _Cnt;
-    
+    NSArray *pic;
     AppDelegate *_appDelegete;
 }
 
@@ -28,8 +28,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //初期化
+    //初期化.intとかfloatとかの数字を扱うもの、stringは初期化必要ない。
     _appDelegete = [[UIApplication sharedApplication] delegate];
+    
+    if (_library == nil) {
+    _library = [[ALAssetsLibrary alloc] init];
+    }
     
     _coreAry = [NSMutableArray new];
     
@@ -38,20 +42,21 @@
     _Cnt = 0;
     
     
-    //画像urlをまとめて配列にいれる。stringのあつまり
-    //おれの場合はここがおそらくカメラロール
-//    picurl = [NSArray arrayWithObjects:
-//              _coreAry[@"image"][0],
-//              _coreAry[@"image"][1],
-//              _coreAry[@"image"][2],
-//              _coreAry[@"image"][3],
-//              nil];
+    
+    //coredataを使う時は、for in文で抽出してあげないとで−たを普通にはとれない
+//    for (NSManagedObject *beforeData in _coreAry) {
+//        Member *member = (Member *)beforeData;
+//        NSLog(@"_coreAry.image = %@",member.image);
+//        pic = member.image;
+//    }
     
     //ログに表示する
     //phpのforeachみたいなもん
+    _picurl = [[NSArray alloc]init];
     for (Member *member in _coreAry) {
-        picurl = [NSArray arrayWithObjects:member.image, nil];
+        _picurl = [_picurl arrayByAddingObject:member.image];
     }
+    NSLog (@"picurl = %@",_picurl);
     
     
     //引き出しのない引き出し。NSMutableArrayは追加変更ができる
@@ -90,10 +95,10 @@
         MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
         options.delegate = self;
         //スワイプのときの文字
-        options.likedText = @"Attend";
+        options.likedText = @"出席";
         //カラー指定
         options.likedColor = [UIColor blueColor];
-        options.nopeText = @"Absence";
+        options.nopeText = @"欠席";
         options.onPan = ^(MDCPanState *state){
             if (state.thresholdRatio == 1.f && state.direction == MDCSwipeDirectionLeft) {
                 //                NSLog(@"Let go now to delete the photo!");
@@ -117,24 +122,28 @@
         
         //一旦viewだけ作っている
         //※ここをカメラロールから引っ張ってくる
-        _mdview.imageView.image = [UIImage imageNamed:@"load"];
-        [self.view addSubview:_mdview];
+//        _mdview.imageView.image = [UIImage imageNamed:@"load"];
+//        [self.view addSubview:_mdview];
         
-        UIImage *img = [UIImage imageNamed:imageStr];
+//        UIImage *img = [UIImage imageNamed:imageStr];
         
         //ここで表示
-        _mdview.imageView.image = img;
+//        _mdview.imageView.image = img;
         
-        
+        NSLog(@"iamgestr = %@",imageStr);
         //URLからALAssetを取得
-        [_library assetForURL:[NSURL URLWithString:_assetsUrl]resultBlock:^(ALAsset *asset){
+        [_library assetForURL:[NSURL URLWithString:imageStr]resultBlock:^(ALAsset *asset){
+            NSLog(@"_library = %@",_library);
+            NSLog(@"asset = %@",asset);
             //画像があるかチェック
             if (asset) {
+                
                 NSLog(@"データがあります");
                 //写真データを取得するためのオブジェクト
                 ALAssetRepresentation *assetRep = [asset defaultRepresentation];
                 UIImage *fullScreenImage = [UIImage imageWithCGImage:[assetRep fullScreenImage]];
                 _mdview.imageView.image = fullScreenImage;
+                
             }else{
                 NSLog(@"データがありません");
             }
@@ -178,28 +187,35 @@
 
 // This is called then a user swipes the view fully left or right.
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
-    if(_Cnt < [_coreAry count]){
+    NSString *test;
+    for (NSManagedObject *beforeData in _coreAry) {
+        Member *member = (Member *)beforeData;
+        NSLog(@"_coreAry.image = %@",member.name);
+        test = member.name;
+    }
+    NSLog(@"_coreAry=%@",_coreAry);
+    if(_Cnt < _coreAry.count){
         //左にスワイプ
         if (direction == MDCSwipeDirectionLeft) {
             //            NSLog(@"Photo deleted!");
-            NSString *str = _coreAry[_Cnt][@"name"];
+            NSString *str = test;
             //ここで欠席に保存してる
             [_appDelegete.absentAry addObject:str];
         } else {
             //右にスワイプ
             //            NSLog(@"Photo saved!");
-            NSString *str = _coreAry[_Cnt][@"name"];
+            NSString *str = test;
             //ここで出席に保存してる
             [_appDelegete.attendAry addObject:str];
         }
         //1回スワイプしたから1こ増える
         _Cnt++;
-        if(_Cnt == [_coreAry count]){
+        if(_Cnt == _coreAry.count){
             //スワイプし終わったら次の画面
             [self moveToSecond];
             self.memberLabel.text = @"Member Name";
         }else{
-            self.memberLabel.text = _coreAry[_Cnt][@"name"];
+            self.memberLabel.text = test;
         }
     }
 }
@@ -233,8 +249,20 @@
 
 - (IBAction)tapAttendanceBtn:(id)sender {
     [self local_picLoad:@""];    //最後に表示するローカル画像
-    [self picLoad:picurl];          //urlから非同期で画像を読み込む
+    [self picLoad:_picurl];          //urlから非同期で画像を読み込む
     _Cnt = 0;
-    self.memberLabel.text = _coreAry[_Cnt][@"name"];
+    NSLog(@"_coreAry=%@",_coreAry);
+    NSString *test;
+    
+    //coredataを使う時は、for in文で抽出してあげないとで−たを普通にはとれない
+    for (NSManagedObject *beforeData in _coreAry) {
+        Member *member = (Member *)beforeData;
+        NSLog(@"_coreAry.image = %@",member.name);
+        test = member.name;
+        
+    }
+//    self.memberLabel.text = _coreAry[_Cnt][@"name"];
+    self.memberLabel.text = test;
+
 }
 @end
