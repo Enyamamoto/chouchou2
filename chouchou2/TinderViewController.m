@@ -122,8 +122,8 @@
         
         //一旦viewだけ作っている
         //※ここをカメラロールから引っ張ってくる
-//        _mdview.imageView.image = [UIImage imageNamed:@"load"];
-//        [self.view addSubview:_mdview];
+        _mdview.imageView.image = [UIImage imageNamed:@"load"];
+        [self.view addSubview:_mdview];
         
 //        UIImage *img = [UIImage imageNamed:imageStr];
         
@@ -257,7 +257,7 @@
     //coredataを使う時は、for in文で抽出してあげないとで−たを普通にはとれない
     for (NSManagedObject *beforeData in _coreAry) {
         Member *member = (Member *)beforeData;
-        NSLog(@"_coreAry.image = %@",member.name);
+        NSLog(@"_coreAry.name = %@",member.name);
         test = member.name;
         
     }
