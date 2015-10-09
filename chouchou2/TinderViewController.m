@@ -91,44 +91,11 @@
 {
     for (int i =0; i<[urls count]; i++) {
         
-        //MDCSwipeToChooseViewのオプション設定と作成
-        MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
-        options.delegate = self;
-        //スワイプのときの文字
-        options.likedText = @"出席";
-        //カラー指定
-        options.likedColor = [UIColor blueColor];
-        options.nopeText = @"欠席";
-        options.onPan = ^(MDCPanState *state){
-            if (state.thresholdRatio == 1.f && state.direction == MDCSwipeDirectionLeft) {
-                //                NSLog(@"Let go now to delete the photo!");
-            }
-        };
-        
-        //MDCSwipeToChooseViewの位置
-        CGRect frame = CGRectMake(0, 0, 320, 240);
-        //初期化。初期化したときの位置がframe
-        _mdview = [[MDCSwipeToChooseView alloc]initWithFrame:frame options:options];
-        //ここで左上ではなくて、画面自体のセンターに指定してる
-        _mdview.center = self.view.center;
-        
-        // 後々removeできるように_mdviewにタグをつけている
-        //製造番号みたいなイメージ
-        _mdview.tag = (i + 1);
-        
         //addsubview読み込んだ画像をのせる
         long int cnt = [urls count]-1;
         NSString *imageStr = [urls objectAtIndex:(cnt-i)];
         
-        //一旦viewだけ作っている
-        //※ここをカメラロールから引っ張ってくる
-        _mdview.imageView.image = [UIImage imageNamed:@"load"];
-        [self.view addSubview:_mdview];
         
-//        UIImage *img = [UIImage imageNamed:imageStr];
-        
-        //ここで表示
-//        _mdview.imageView.image = img;
         
         NSLog(@"iamgestr = %@",imageStr);
         //URLからALAssetを取得
@@ -136,14 +103,47 @@
             NSLog(@"_library = %@",_library);
             NSLog(@"asset = %@",asset);
             //画像があるかチェック
-            if (asset) {
-                
+        if (asset) {
+            //MDCSwipeToChooseViewのオプション設定と作成
+            MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
+            options.delegate = self;
+            //スワイプのときの文字
+            options.likedText = @"出席";
+            //カラー指定
+            options.likedColor = [UIColor blueColor];
+            options.nopeText = @"欠席";
+            options.onPan = ^(MDCPanState *state){
+                if (state.thresholdRatio == 1.f && state.direction == MDCSwipeDirectionLeft) {
+                    //                NSLog(@"Let go now to delete the photo!");
+                }
+            };
+            
+            //MDCSwipeToChooseViewの位置
+            CGRect frame = CGRectMake(0, 0, 320, 240);
+            //初期化。初期化したときの位置がframe
+            _mdview = [[MDCSwipeToChooseView alloc]initWithFrame:frame options:options];
+            //ここで左上ではなくて、画面自体のセンターに指定してる
+            _mdview.center = self.view.center;
+            
+            // 後々removeできるように_mdviewにタグをつけている
+            //製造番号みたいなイメージ
+            _mdview.tag = (i + 1);
+        
+            
+            
+            
+            //        UIImage *img = [UIImage imageNamed:imageStr];
+            
+            //ここで表示
+            //        _mdview.imageView.image = img;
+            
+            
                 NSLog(@"データがあります");
                 //写真データを取得するためのオブジェクト
                 ALAssetRepresentation *assetRep = [asset defaultRepresentation];
                 UIImage *fullScreenImage = [UIImage imageWithCGImage:[assetRep fullScreenImage]];
                 _mdview.imageView.image = fullScreenImage;
-                
+                [self.view addSubview:_mdview];
             }else{
                 NSLog(@"データがありません");
             }
@@ -188,13 +188,22 @@
 // This is called then a user swipes the view fully left or right.
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
     NSString *test;
-    for (NSManagedObject *beforeData in _coreAry) {
-        Member *member = (Member *)beforeData;
-        NSLog(@"_coreAry.image = %@",member.name);
-        test = member.name;
-    }
+    
     NSLog(@"_coreAry=%@",_coreAry);
     if(_Cnt < _coreAry.count){
+        //1回スワイプしたから1こ増える
+        _Cnt++;
+        int index = 0;
+        for (NSManagedObject *beforeData in _coreAry) {
+            Member *member = (Member *)beforeData;
+            NSLog(@"_coreAry.image = %@",member.name);
+            test = member.name;
+            if (index == _Cnt) {
+                break;
+            }
+            index++;
+        }
+        
         //左にスワイプ
         if (direction == MDCSwipeDirectionLeft) {
             //            NSLog(@"Photo deleted!");
@@ -208,8 +217,7 @@
             //ここで出席に保存してる
             [_appDelegete.attendAry addObject:str];
         }
-        //1回スワイプしたから1こ増える
-        _Cnt++;
+        
         if(_Cnt == _coreAry.count){
             //スワイプし終わったら次の画面
             [self moveToSecond];
@@ -255,10 +263,15 @@
     NSString *test;
     
     //coredataを使う時は、for in文で抽出してあげないとで−たを普通にはとれない
+    int index = 0;
     for (NSManagedObject *beforeData in _coreAry) {
         Member *member = (Member *)beforeData;
         NSLog(@"_coreAry.name = %@",member.name);
         test = member.name;
+        if (index == _Cnt) {
+            break;
+        }
+        index++;
         
     }
 //    self.memberLabel.text = _coreAry[_Cnt][@"name"];
