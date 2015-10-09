@@ -18,6 +18,8 @@
     int _Cnt;
     NSArray *pic;
     AppDelegate *_appDelegete;
+
+    
 }
 
 @end
@@ -41,14 +43,7 @@
     
     _Cnt = 0;
     
-    
-    
-    //coredataを使う時は、for in文で抽出してあげないとで−たを普通にはとれない
-//    for (NSManagedObject *beforeData in _coreAry) {
-//        Member *member = (Member *)beforeData;
-//        NSLog(@"_coreAry.image = %@",member.image);
-//        pic = member.image;
-//    }
+    _index = 0;
     
     //ログに表示する
     //phpのforeachみたいなもん
@@ -128,28 +123,21 @@
             // 後々removeできるように_mdviewにタグをつけている
             //製造番号みたいなイメージ
             _mdview.tag = (i + 1);
-        
             
+            NSLog(@"データがあります");
+            //写真データを取得するためのオブジェクト
+            ALAssetRepresentation *assetRep = [asset defaultRepresentation];
+            UIImage *fullScreenImage = [UIImage imageWithCGImage:[assetRep fullScreenImage]];
+            _mdview.imageView.image = fullScreenImage;
             
-            
-            //        UIImage *img = [UIImage imageNamed:imageStr];
-            
-            //ここで表示
-            //        _mdview.imageView.image = img;
-            
-            
-                NSLog(@"データがあります");
-                //写真データを取得するためのオブジェクト
-                ALAssetRepresentation *assetRep = [asset defaultRepresentation];
-                UIImage *fullScreenImage = [UIImage imageWithCGImage:[assetRep fullScreenImage]];
-                _mdview.imageView.image = fullScreenImage;
-                [self.view addSubview:_mdview];
-            }else{
-                NSLog(@"データがありません");
-            }
+            [self.view addSubview:_mdview];
+        }else{
+            NSLog(@"データがありません");
+        }
         } failureBlock:nil];
     }
 }
+
 
 //ローカル画像の読み込み
 -(void)local_picLoad:(NSString *)url
@@ -192,7 +180,10 @@
     NSLog(@"_coreAry=%@",_coreAry);
     if(_Cnt < _coreAry.count){
         //1回スワイプしたから1こ増える
+        NSLog(@"_Cnt=%i",_Cnt);
         _Cnt++;
+        NSLog(@"_Cnt=%i",_Cnt);
+        //ここのindexが0だと、速攻breakになっちゃって一人目がカウントされない
         int index = 0;
         for (NSManagedObject *beforeData in _coreAry) {
             Member *member = (Member *)beforeData;
@@ -210,12 +201,14 @@
             NSString *str = test;
             //ここで欠席に保存してる
             [_appDelegete.absentAry addObject:str];
+            NSLog(@"欠席 = %@",str);
         } else {
             //右にスワイプ
             //            NSLog(@"Photo saved!");
             NSString *str = test;
             //ここで出席に保存してる
             [_appDelegete.attendAry addObject:str];
+            NSLog(@"出席 = %@",str);
         }
         
         if(_Cnt == _coreAry.count){
@@ -233,10 +226,7 @@
                                  instantiateViewControllerWithIdentifier:@"ResultViewController"];
     
     // 遷移する方法を指定して遷移するコードを書く
-    //// Modal遷移 下からニュっと出てくる遷移
-    //    [self presentViewController:SVC animated:YES completion:nil];
-    
-    //// Push遷移 横から出てきて横に還っていく遷移
+    // Push遷移 横から出てきて横に還っていく遷移
     [self.navigationController pushViewController:SVC animated:YES];
 }
 
@@ -274,7 +264,7 @@
         index++;
         
     }
-//    self.memberLabel.text = _coreAry[_Cnt][@"name"];
+
     self.memberLabel.text = test;
 
 }

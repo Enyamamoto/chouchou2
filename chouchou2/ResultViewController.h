@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "Member.h"
+
 
 @interface ResultViewController : UIViewController
+<UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate,UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate>
+
+//データを取得するときに必要なオブジェクト
+@property(strong,nonatomic)NSFetchedResultsController *fetchedResultsController;
+//データを管理（CRUD)で必要なオブジェクト
+@property(strong,nonatomic)NSManagedObjectContext *managedObjectContext;
+
+@property (weak, nonatomic) IBOutlet UITableView *resultTable;
 
 @end
