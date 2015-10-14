@@ -11,8 +11,13 @@
 #import "AppDelegate.h"
 #import "Member.h"
 #import "SecondViewController.h"
+#import "Group.h"
 
-@interface MemberViewController ()
+@interface MemberViewController (){
+    AppDelegate *_appdelegate;
+    
+    NSMutableArray *_groupArray;
+}
 
 @end
 
@@ -28,7 +33,10 @@
     if (_library == nil) {
         _library = [[ALAssetsLibrary alloc] init];
     }
+
     
+    //Appdelegate初期化
+    _appdelegate = [[UIApplication sharedApplication]delegate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -112,8 +120,26 @@ picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     // CoreDataにデータを保存する
     Member *member = [NSEntityDescription insertNewObjectForEntityForName:@"Member" inManagedObjectContext:context];
     
+//    Group *group = [NSEntityDescription insertNewObjectForEntityForName:@"Group" inManagedObjectContext:context];
+//    
+//    NSLog(@"group = %@",group);
+    [self getFriendsInAreaSelected];
+    NSLog(@"_gropu %@",_groupArray);
+
+    
     [member setName:name];
     [member setImage:image];
+    
+    
+    Group *group = _groupArray[_appdelegate.selectNum];
+    
+    NSLog(@"gr = %@",group);
+
+    //tomoの配列にrowがはいる
+    [group addMemberObject:member];
+    
+    NSArray *ary = [group.member allObjects];
+    NSLog(@"ary = %@",ary);
     
     NSError *error;
     if (![context save:&error]) {
@@ -124,6 +150,37 @@ picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     //この一行でもどるボタン。子画面を閉じる。(Modalの画面遷移用)。completionは完了時どうしたいかを設定できる。
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)getFriendsInAreaSelected{
+    
+    //    NSDictionary *options = @{@"group_id":[NSString stringWithFormat:@"%d",self.areaNum]};
+    _groupArray = [NSMutableArray new];
+    
+    _groupArray = [[self selectAllData:nil] mutableCopy];
+    
+}
+
+
+//Coredataに入ってるデータを取ってくる
+- (NSArray *)selectAllData:(NSDictionary *)options {
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    //fetch設定を生成
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Group"];
+    
+    
+    //sort条件を設定
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"groupName" ascending:NO];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // managedObjectContextからデータを取得
+    NSArray *results = [context executeFetchRequest:fetchRequest error:nil];
+    
+    return results;
 }
 
 - (IBAction)cancelBtn:(id)sender {

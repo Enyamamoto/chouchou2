@@ -20,6 +20,7 @@
 @property(strong,nonatomic)NSManagedObjectContext * managedObjectContext;
 //ViewControllerで何番目がおされたか
 @property(nonatomic,assign) int selectNum;
+
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
 - (IBAction)addBtn:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *secondTable;

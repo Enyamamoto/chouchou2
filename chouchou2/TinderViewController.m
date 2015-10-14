@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "ResultViewController.h"
 #import "Member.h"
+#import "Group.h"
 
 @interface TinderViewController (){
     NSArray *_picurl;
@@ -18,6 +19,10 @@
     int _Cnt;
     NSArray *pic;
     AppDelegate *_appDelegete;
+    
+    NSArray *_memberAry;
+    
+    NSMutableArray *_groupAry;
 
     
 }
@@ -33,22 +38,35 @@
     //初期化.intとかfloatとかの数字を扱うもの、stringは初期化必要ない。
     _appDelegete = [[UIApplication sharedApplication] delegate];
     
+    NSLog(@"iPath %i",_appDelegete.iPath);
     if (_library == nil) {
     _library = [[ALAssetsLibrary alloc] init];
     }
     
     _coreAry = [NSMutableArray new];
     
-    _coreAry = [[self selectAllData:nil] mutableCopy];
+    _memberAry = [NSArray new];
+    
+    _groupAry = [NSMutableArray new];
+    
+    _groupAry = [[self selectAllData:nil] mutableCopy];
+    
+    NSLog(@"group = %@",_groupAry);
+    
+    Group *group = _groupAry[_appDelegete.iPath];
+    
+    _memberAry = [group.member allObjects];
+    NSLog(@"_memberAry = %@",_memberAry);
+    
     
     _Cnt = 0;
     
-    _index = 0;
+
     
     //ログに表示する
     //phpのforeachみたいなもん
     _picurl = [[NSArray alloc]init];
-    for (Member *member in _coreAry) {
+    for (Member *member in _memberAry) {
         _picurl = [_picurl arrayByAddingObject:member.image];
     }
     NSLog (@"picurl = %@",_picurl);
@@ -61,6 +79,27 @@
     
 }
 
+////Coredataに入ってるデータを取ってくる
+//- (NSArray *)selectAllData:(NSDictionary *)options {
+//    
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+//    
+//    //fetch設定を生成
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Member"];
+//    
+//    
+//    //sort条件を設定
+//    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
+//    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+//    [fetchRequest setSortDescriptors:sortDescriptors];
+//    
+//    // managedObjectContextからデータを取得
+//    NSArray *results = [context executeFetchRequest:fetchRequest error:nil];
+//    
+//    return results;
+//}
+
 //Coredataに入ってるデータを取ってくる
 - (NSArray *)selectAllData:(NSDictionary *)options {
     
@@ -68,11 +107,11 @@
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     
     //fetch設定を生成
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Member"];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Group"];
     
     
     //sort条件を設定
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"groupName" ascending:NO];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
@@ -178,16 +217,16 @@
     NSString *test;
     
     NSLog(@"_coreAry=%@",_coreAry);
-    if(_Cnt < _coreAry.count){
+    if(_Cnt < _memberAry.count){
         //1回スワイプしたから1こ増える
         NSLog(@"_Cnt=%i",_Cnt);
-        _Cnt++;
+        //_Cnt++;
         NSLog(@"_Cnt=%i",_Cnt);
         //ここのindexが0だと、速攻breakになっちゃって一人目がカウントされない
         int index = 0;
-        for (NSManagedObject *beforeData in _coreAry) {
+        for (NSManagedObject *beforeData in _memberAry) {
             Member *member = (Member *)beforeData;
-            NSLog(@"_coreAry.image = %@",member.name);
+            NSLog(@"_memberAryのname = %@",member.name);
             test = member.name;
             if (index == _Cnt) {
                 break;
@@ -211,7 +250,20 @@
             NSLog(@"出席 = %@",str);
         }
         
-        if(_Cnt == _coreAry.count){
+        //次の人の名前をとるために,_Cnt++とfor文
+        _Cnt++;
+        index = 0;
+        for (NSManagedObject *beforeData in _memberAry) {
+            Member *member = (Member *)beforeData;
+            NSLog(@"_coreAry.image = %@",member.name);
+            test = member.name;
+            if (index == _Cnt) {
+                break;
+            }
+            index++;
+        }
+        
+        if(_Cnt == [_memberAry count]){
             //スワイプし終わったら次の画面
             [self moveToSecond];
             self.memberLabel.text = @"Member Name";
@@ -219,6 +271,8 @@
             self.memberLabel.text = test;
         }
     }
+    
+
 }
 
 -(void)moveToSecond{
@@ -249,12 +303,12 @@
     [self local_picLoad:@""];    //最後に表示するローカル画像
     [self picLoad:_picurl];          //urlから非同期で画像を読み込む
     _Cnt = 0;
-    NSLog(@"_coreAry=%@",_coreAry);
+    NSLog(@"_coreAry=%@",_memberAry);
     NSString *test;
     
     //coredataを使う時は、for in文で抽出してあげないとで−たを普通にはとれない
     int index = 0;
-    for (NSManagedObject *beforeData in _coreAry) {
+    for (NSManagedObject *beforeData in _memberAry) {
         Member *member = (Member *)beforeData;
         NSLog(@"_coreAry.name = %@",member.name);
         test = member.name;

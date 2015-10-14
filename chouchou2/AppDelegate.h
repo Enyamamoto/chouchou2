@@ -15,6 +15,9 @@
 
 //これが複数画面間で共有したい値があるときにつかう
 @property (nonatomic) int iPath;
+@property (nonatomic) NSString  *team;
+@property(nonatomic,assign) int selectNum;
+
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

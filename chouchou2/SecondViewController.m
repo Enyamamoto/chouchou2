@@ -8,12 +8,17 @@
 
 #import "SecondViewController.h"
 #import "AppDelegate.h"
+#import "ViewController.h"
 #import "Member.h"
 #import "MemberViewController.h"
 
 
 @interface SecondViewController (){
     NSMutableArray *_memberArray;
+    NSMutableArray *_memberList;
+    AppDelegate *_appdelegete;
+    
+    NSArray *_ary;
 }
 
 @end
@@ -29,15 +34,31 @@
     
     self.navigationController.delegate = self;
     
+    _memberList = [NSMutableArray array];
+    
+    _appdelegete = [[UIApplication sharedApplication] delegate];
+
     //配列を更新
     [self getFriendsInAreaSelected];
-    
+    NSLog(@"memberList %@",_memberList);
     
     NSLog(@"viewDidLoad");
+    NSLog(@"もらった行番号=%d",self.selectNum);
     
     
     self.secondTable.delegate = self;
     self.secondTable.dataSource = self;
+    
+    //_memberList[self.selectNum]; がコアデータだから、Group *groupになる。
+    Group *group = _memberList[self.selectNum];
+    
+    NSLog(@"gr = %@",group);
+    
+    //tomoの配列にrowがはいる
+    //array型に変換
+    _ary = [group.member allObjects];
+    NSLog(@"ary = %@",_ary);
+    
 }
 
 //他のviewから復帰した瞬間に発動
@@ -45,6 +66,15 @@
     [super viewWillAppear:YES];
     //配列を更新
     [self getFriendsInAreaSelected];
+
+    
+    Group *group = _memberList[self.selectNum];
+    
+    NSLog(@"gr = %@",group);
+    
+    //tomoの配列にrowがはいる
+    _ary = [group.member allObjects];
+    NSLog(@"ary = %@",_ary);
 
     
     // テーブルビューを更新
@@ -56,12 +86,36 @@
 -(void)getFriendsInAreaSelected{
     
     //    NSDictionary *options = @{@"group_id":[NSString stringWithFormat:@"%d",self.areaNum]};
-    _memberArray = [NSMutableArray new];
     
-    _memberArray = [[self selectAllData:nil] mutableCopy];
+// もともとあったメソッド
+//    _memberArray = [NSMutableArray new];
+//    
+//    _memberArray = [[self selectAllData:nil] mutableCopy];
     
+    _memberList = [[self selectAllData:nil] mutableCopy];
 }
 
+
+////Coredataに入ってるデータを取ってくる
+//- (NSArray *)selectAllData:(NSDictionary *)options {
+//    
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+//    
+//    //fetch設定を生成
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Member"];
+//    
+//    
+//    //sort条件を設定
+//    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
+//    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+//    [fetchRequest setSortDescriptors:sortDescriptors];
+//    
+//    // managedObjectContextからデータを取得
+//    NSArray *results = [context executeFetchRequest:fetchRequest error:nil];
+//    
+//    return results;
+//}
 
 //Coredataに入ってるデータを取ってくる
 - (NSArray *)selectAllData:(NSDictionary *)options {
@@ -70,11 +124,11 @@
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     
     //fetch設定を生成
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Member"];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Group"];
     
     
     //sort条件を設定
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"groupName" ascending:NO];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
@@ -85,7 +139,8 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _memberArray.count;
+//    return _memberArray.count;
+    return _ary.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -100,9 +155,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifer];
     }
     
-    Member *member = _memberArray[indexPath.row];
+//    Member *member = _memberArray[indexPath.row];
+//    
+//    cell.textLabel.text = [NSString stringWithFormat:@"%@",member.name];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",member.name];
+    Member *member = _ary[indexPath.row];
+    cell.textLabel.text = member.name;
     return cell;
 }
 
@@ -114,7 +172,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         NSManagedObjectContext *context = [appDelegate managedObjectContext];
         
-        Member *member = _memberArray[indexPath.row];
+        Member *member = _ary[indexPath.row];
         [context deleteObject:member];
         
         NSError *error = nil;

@@ -27,6 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    //データを取得するための準備
     //Appdelegate初期化
     _appdelegate = [[UIApplication sharedApplication]delegate];
     
@@ -38,11 +39,13 @@
 }
 
 
+//selectAllDataと合わせてデータをとってきてる
 //selectAlldataで取り出したのを表示するメソッド
 -(void)getFriendsInAreaSelected{
     
 //    NSDictionary *options = @{@"group_id":[NSString stringWithFormat:@"%d",self.areaNum]};
     _groupArray = [NSMutableArray new];
+    
     
     _groupArray = [[self selectAllData:nil] mutableCopy];
     
@@ -79,7 +82,7 @@
     return results;
 }
 
-//行数を返す
+//セクションの中の行数指定
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _groupArray.count;
@@ -100,8 +103,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifer];
     }
     
+    //CoreDataにデータを保存する
     Group *group = _groupArray[indexPath.row];
     
+    //おそらくテーブルに表示
     cell.textLabel.text = [NSString stringWithFormat:@"%@",group.groupName];
     return cell;
 }
@@ -202,10 +207,22 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self findUITableViewCellFromSuperViewsForView:sender];
     int row = (int)[self.mainTable indexPathForCell:cell].row;
     NSLog(@"indexpath?:%d",row);
+    
+    //CoreDataにデータを保存する
+    Group *group = _groupArray[row];
+    
+    //おそらくテーブルに表示
+    _appdelegate.team = [NSString stringWithFormat:@"%@",group.groupName];
+    
+    //アップデリゲートにいれる
+    NSLog(@"_appdelegate.team = %@",_appdelegate.team);
+    //SecondViewControllerっていう設計図から実体をつくる。設計図から車を作ってるかんじ。
     SecondViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"SecondViewController"];
     //押された番号を遷移先画面のプロパティにセット
     //dvc.selectNumとindexPath.rowは型が違うので型を変換する
     VC.selectNum = row;
+    _appdelegate.selectNum = row;
+    NSLog(@"applog =%i",_appdelegate.selectNum);
     //Push遷移
     [self.navigationController pushViewController:VC animated:YES];
 }
