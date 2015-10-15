@@ -32,7 +32,7 @@
     //ナビゲーションコントローラーにエリア名を指定
     self.navigationItem.title = @"Members";
     
-    self.navigationController.delegate = self;
+//    self.navigationController.delegate = self;
     
     _memberList = [NSMutableArray array];
     

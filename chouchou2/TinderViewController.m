@@ -70,11 +70,14 @@
         _picurl = [_picurl arrayByAddingObject:member.image];
     }
     NSLog (@"picurl = %@",_picurl);
+
     
     
     //引き出しのない引き出し。NSMutableArrayは追加変更ができる
     _appDelegete.absentAry = [NSMutableArray array];
     _appDelegete.attendAry = [NSMutableArray array];
+    
+    NSLog(@"_appDelegete.absentAry = %@",_appDelegete.absentAry);
     
     
 }
