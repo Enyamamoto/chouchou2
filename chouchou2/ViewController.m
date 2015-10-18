@@ -36,6 +36,9 @@
     self.mainTable.delegate = self;
     self.mainTable.dataSource = self;
     
+    _mainTable.separatorColor = [UIColor whiteColor];
+    
+    
 }
 
 
@@ -108,9 +111,13 @@
     
     //おそらくテーブルに表示
     cell.textLabel.text = [NSString stringWithFormat:@"%@",group.groupName];
+    
+    //文字色・フォント・サイズ設定
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
+    
     return cell;
 }
-
 
 //ラインみたいなスライド削除
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle

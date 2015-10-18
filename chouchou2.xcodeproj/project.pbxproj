@@ -13,6 +13,8 @@
 		E535D5291BCE02AC00AE46A5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C61B51BC1519100C0C156 /* ViewController.m */; };
 		E535D5381BCE8EA300AE46A5 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = E535D5371BCE8EA300AE46A5 /* Member.m */; };
 		E535D53B1BCE8EA400AE46A5 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = E535D53A1BCE8EA400AE46A5 /* Group.m */; };
+		E535D53D1BD0986C00AE46A5 /* SignPainter.otf in Resources */ = {isa = PBXBuildFile; fileRef = E535D53C1BD0986C00AE46A5 /* SignPainter.otf */; };
+		E535D53F1BD10BCC00AE46A5 /* Walt_Disney_Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E535D53E1BD10BCC00AE46A5 /* Walt_Disney_Script.ttf */; };
 		E53C61AD1BC1519100C0C156 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C61AC1BC1519100C0C156 /* main.m */; };
 		E53C61B01BC1519100C0C156 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C61AF1BC1519100C0C156 /* AppDelegate.m */; };
 		E53C61B31BC1519100C0C156 /* chouchou2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E53C61B11BC1519100C0C156 /* chouchou2.xcdatamodeld */; };
@@ -49,6 +51,8 @@
 		E535D5371BCE8EA300AE46A5 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
 		E535D5391BCE8EA400AE46A5 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		E535D53A1BCE8EA400AE46A5 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		E535D53C1BD0986C00AE46A5 /* SignPainter.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SignPainter.otf; path = ../../../../../Desktop/SignPainter.otf; sourceTree = "<group>"; };
+		E535D53E1BD10BCC00AE46A5 /* Walt_Disney_Script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Walt_Disney_Script.ttf; path = ../../../../../Downloads/Walt_Disney_Script_v4_1/Walt_Disney_Script.ttf; sourceTree = "<group>"; };
 		E53C61A71BC1519100C0C156 /* chouchou2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chouchou2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E53C61AB1BC1519100C0C156 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E53C61AC1BC1519100C0C156 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 		E53C61A91BC1519100C0C156 /* chouchou2 */ = {
 			isa = PBXGroup;
 			children = (
+				E535D53C1BD0986C00AE46A5 /* SignPainter.otf */,
+				E535D53E1BD10BCC00AE46A5 /* Walt_Disney_Script.ttf */,
 				E535D5391BCE8EA400AE46A5 /* Group.h */,
 				E535D53A1BCE8EA400AE46A5 /* Group.m */,
 				E535D5361BCE8EA300AE46A5 /* Member.h */,
@@ -266,8 +272,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E535D53F1BD10BCC00AE46A5 /* Walt_Disney_Script.ttf in Resources */,
 				E53C61B91BC1519100C0C156 /* Main.storyboard in Resources */,
 				E53C61BE1BC1519100C0C156 /* LaunchScreen.xib in Resources */,
+				E535D53D1BD0986C00AE46A5 /* SignPainter.otf in Resources */,
 				E53C61BB1BC1519100C0C156 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

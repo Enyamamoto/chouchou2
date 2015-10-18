@@ -117,10 +117,13 @@
             case 0:
                 cell.textLabel.text = _attendAry[indexPath.row];
                 cell.textLabel.textColor = [UIColor blueColor];
+                cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
                 
                 break;
             case 1:
-                cell.textLabel.text = @"なし";
+                cell.textLabel.text = @"Nothing";
+                cell.textLabel.textColor = [UIColor whiteColor];
+                cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
                 break;
             default:
                 break;
@@ -128,11 +131,14 @@
     }else if(_attendAry.count == 0){
         switch (indexPath.section) {
             case 0:
-                cell.textLabel.text = @"なし";
+                cell.textLabel.text = @"Nothing";
+                cell.textLabel.textColor = [UIColor whiteColor];
+                cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
                 break;
             case 1:
                 cell.textLabel.text = _absentAry[indexPath.row];
                 cell.textLabel.textColor = [UIColor redColor];
+                cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
                 
                 break;
             default:
@@ -144,10 +150,12 @@
             case 0:
                 cell.textLabel.text = _attendAry[indexPath.row];
                 cell.textLabel.textColor = [UIColor blueColor];
+                cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
                 break;
             case 1:
                 cell.textLabel.text = _absentAry[indexPath.row];
                 cell.textLabel.textColor = [UIColor redColor];
+                cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
                 break;
             default:
                 break;

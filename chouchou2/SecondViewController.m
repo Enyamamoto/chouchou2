@@ -32,6 +32,7 @@
     //ナビゲーションコントローラーにエリア名を指定
     self.navigationItem.title = @"Members";
     
+    //この下記の文が入ってるとエラーになった。
 //    self.navigationController.delegate = self;
     
     _memberList = [NSMutableArray array];
@@ -48,6 +49,8 @@
     
     self.secondTable.delegate = self;
     self.secondTable.dataSource = self;
+    
+    _secondTable.separatorColor = [UIColor whiteColor];
     
     //_memberList[self.selectNum]; がコアデータだから、Group *groupになる。
     Group *group = _memberList[self.selectNum];
@@ -161,6 +164,10 @@
     
     Member *member = _ary[indexPath.row];
     cell.textLabel.text = member.name;
+    
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
+    
     return cell;
 }
 

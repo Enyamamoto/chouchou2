@@ -156,7 +156,7 @@
             };
             
             //MDCSwipeToChooseViewの位置
-            CGRect frame = CGRectMake(0, 0, 320, 240);
+            CGRect frame = CGRectMake(0, 0, 360, 300);
             //初期化。初期化したときの位置がframe
             _mdview = [[MDCSwipeToChooseView alloc]initWithFrame:frame options:options];
             //ここで左上ではなくて、画面自体のセンターに指定してる
