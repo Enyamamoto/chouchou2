@@ -231,8 +231,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         
         
+        
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // ここは空のままでOKです。
+       
     }
 }
 

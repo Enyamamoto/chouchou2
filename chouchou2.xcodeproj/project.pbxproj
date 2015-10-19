@@ -117,6 +117,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E52174D81BD48D3900B2EF77 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				E5E448711BD3A8760093DE27 /* chouchou.png */,
+				E53517C71BD3FE620070EC52 /* disney.png */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
+		E52174D91BD48D4E00B2EF77 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				E535D53E1BD10BCC00AE46A5 /* Walt_Disney_Script.ttf */,
+			);
+			name = font;
+			sourceTree = "<group>";
+		};
 		E53C619E1BC1519100C0C156 = {
 			isa = PBXGroup;
 			children = (
@@ -142,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				E535D53C1BD0986C00AE46A5 /* SignPainter.otf */,
-				E535D53E1BD10BCC00AE46A5 /* Walt_Disney_Script.ttf */,
 				E535D5391BCE8EA400AE46A5 /* Group.h */,
 				E535D53A1BCE8EA400AE46A5 /* Group.m */,
 				E535D5361BCE8EA300AE46A5 /* Member.h */,
@@ -171,8 +187,8 @@
 		E53C61AA1BC1519100C0C156 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E53517C71BD3FE620070EC52 /* disney.png */,
-				E5E448711BD3A8760093DE27 /* chouchou.png */,
+				E52174D81BD48D3900B2EF77 /* image */,
+				E52174D91BD48D4E00B2EF77 /* font */,
 				E53C61AB1BC1519100C0C156 /* Info.plist */,
 				E53C61AC1BC1519100C0C156 /* main.m */,
 			);
