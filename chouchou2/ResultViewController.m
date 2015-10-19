@@ -37,6 +37,24 @@
     
     _appDelegete.attendAry = [NSMutableArray array];
     _appDelegete.absentAry = [NSMutableArray array];
+    
+    //背景画像
+    UIImage *background = [UIImage imageNamed:@"chouchou.png"];
+    self.resultTable.backgroundView = [[UIImageView alloc] initWithImage:background];
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"chouchou.png"] drawInRect:self.view.bounds];
+    UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+}
+
+
+//tableViewとcellの背景を透明にしてる
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor = [UIColor clearColor];
+    tableView.backgroundColor = [UIColor clearColor];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -117,13 +135,13 @@
             case 0:
                 cell.textLabel.text = _attendAry[indexPath.row];
                 cell.textLabel.textColor = [UIColor blueColor];
-                cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
+                cell.textLabel.font = [UIFont fontWithName:@"Walt Disney Script v4.1" size:35.0];
                 
                 break;
             case 1:
                 cell.textLabel.text = @"Nothing";
-                cell.textLabel.textColor = [UIColor whiteColor];
-                cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
+                cell.textLabel.textColor = [UIColor grayColor];
+                cell.textLabel.font = [UIFont fontWithName:@"Walt Disney Script v4.1" size:35.0];
                 break;
             default:
                 break;
@@ -132,13 +150,13 @@
         switch (indexPath.section) {
             case 0:
                 cell.textLabel.text = @"Nothing";
-                cell.textLabel.textColor = [UIColor whiteColor];
-                cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
+                cell.textLabel.textColor = [UIColor grayColor];
+                cell.textLabel.font = [UIFont fontWithName:@"Walt Disney Script v4.1" size:35.0];
                 break;
             case 1:
                 cell.textLabel.text = _absentAry[indexPath.row];
                 cell.textLabel.textColor = [UIColor redColor];
-                cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
+                cell.textLabel.font = [UIFont fontWithName:@"Walt Disney Script v4.1" size:35.0];
                 
                 break;
             default:
@@ -150,12 +168,12 @@
             case 0:
                 cell.textLabel.text = _attendAry[indexPath.row];
                 cell.textLabel.textColor = [UIColor blueColor];
-                cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
+                cell.textLabel.font = [UIFont fontWithName:@"Walt Disney Script v4.1" size:35.0];
                 break;
             case 1:
                 cell.textLabel.text = _absentAry[indexPath.row];
                 cell.textLabel.textColor = [UIColor redColor];
-                cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
+                cell.textLabel.font = [UIFont fontWithName:@"Walt Disney Script v4.1" size:35.0];
                 break;
             default:
                 break;

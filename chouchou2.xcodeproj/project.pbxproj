@@ -10,6 +10,7 @@
 		E52C31EC1BC1A5B4007F2E28 /* MemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C31EB1BC1A5B4007F2E28 /* MemberViewController.m */; };
 		E52C31EF1BC1AAE7007F2E28 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C31EE1BC1AAE7007F2E28 /* ResultViewController.m */; };
 		E52C31F11BC1AEBA007F2E28 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52C31F01BC1AEBA007F2E28 /* AssetsLibrary.framework */; };
+		E53517C81BD3FE620070EC52 /* disney.png in Resources */ = {isa = PBXBuildFile; fileRef = E53517C71BD3FE620070EC52 /* disney.png */; };
 		E535D5291BCE02AC00AE46A5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C61B51BC1519100C0C156 /* ViewController.m */; };
 		E535D5381BCE8EA300AE46A5 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = E535D5371BCE8EA300AE46A5 /* Member.m */; };
 		E535D53B1BCE8EA400AE46A5 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = E535D53A1BCE8EA400AE46A5 /* Group.m */; };
@@ -25,6 +26,7 @@
 		E53C61D51BC1535A00C0C156 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C61D41BC1535A00C0C156 /* SecondViewController.m */; };
 		E53C61D71BC15FCD00C0C156 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53C61D61BC15FCD00C0C156 /* CoreData.framework */; };
 		E53C61DD1BC1900900C0C156 /* TinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C61DC1BC1900900C0C156 /* TinderViewController.m */; };
+		E5E448721BD3A8760093DE27 /* chouchou.png in Resources */ = {isa = PBXBuildFile; fileRef = E5E448711BD3A8760093DE27 /* chouchou.png */; };
 		FEEA12AB7FB923B7B4736FBD /* libPods-chouchou2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C11E847EE8B1449977094506 /* libPods-chouchou2.a */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,7 @@
 		E52C31ED1BC1AAE7007F2E28 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		E52C31EE1BC1AAE7007F2E28 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		E52C31F01BC1AEBA007F2E28 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		E53517C71BD3FE620070EC52 /* disney.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = disney.png; path = ../../../../../Desktop/disney.png; sourceTree = "<group>"; };
 		E535D5361BCE8EA300AE46A5 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
 		E535D5371BCE8EA300AE46A5 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
 		E535D5391BCE8EA400AE46A5 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 		E53C61D61BC15FCD00C0C156 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E53C61DB1BC1900900C0C156 /* TinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinderViewController.h; sourceTree = "<group>"; };
 		E53C61DC1BC1900900C0C156 /* TinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TinderViewController.m; sourceTree = "<group>"; };
+		E5E448711BD3A8760093DE27 /* chouchou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chouchou.png; path = ../../../../../Desktop/chouchou.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,8 @@
 		E53C61AA1BC1519100C0C156 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E53517C71BD3FE620070EC52 /* disney.png */,
+				E5E448711BD3A8760093DE27 /* chouchou.png */,
 				E53C61AB1BC1519100C0C156 /* Info.plist */,
 				E53C61AC1BC1519100C0C156 /* main.m */,
 			);
@@ -273,10 +279,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E535D53F1BD10BCC00AE46A5 /* Walt_Disney_Script.ttf in Resources */,
+				E5E448721BD3A8760093DE27 /* chouchou.png in Resources */,
 				E53C61B91BC1519100C0C156 /* Main.storyboard in Resources */,
 				E53C61BE1BC1519100C0C156 /* LaunchScreen.xib in Resources */,
 				E535D53D1BD0986C00AE46A5 /* SignPainter.otf in Resources */,
 				E53C61BB1BC1519100C0C156 /* Images.xcassets in Resources */,
+				E53517C81BD3FE620070EC52 /* disney.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

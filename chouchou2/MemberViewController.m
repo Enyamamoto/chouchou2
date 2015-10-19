@@ -37,12 +37,22 @@
     
     //Appdelegate初期化
     _appdelegate = [[UIApplication sharedApplication]delegate];
+    
+
+    //背景画像設定
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"chouchou.png"] drawInRect:self.view.bounds];
+    UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation

@@ -52,7 +52,19 @@
     
     _secondTable.separatorColor = [UIColor whiteColor];
     
+    
+    //背景画像
+    UIImage *background = [UIImage imageNamed:@"chouchou.png"];
+    self.secondTable.backgroundView = [[UIImageView alloc] initWithImage:background];
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"chouchou.png"] drawInRect:self.view.bounds];
+    UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    
     //_memberList[self.selectNum]; がコアデータだから、Group *groupになる。
+    //もとは_member
     Group *group = _memberList[self.selectNum];
     
     NSLog(@"gr = %@",group);
@@ -62,6 +74,14 @@
     _ary = [group.member allObjects];
     NSLog(@"ary = %@",_ary);
     
+
+}
+
+//tableViewとcellの背景を透明にしてる
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor = [UIColor clearColor];
+    tableView.backgroundColor = [UIColor clearColor];
 }
 
 //他のviewから復帰した瞬間に発動
@@ -83,6 +103,8 @@
     // テーブルビューを更新
     [self.secondTable reloadData];
     NSLog(@"viewWillAppear");
+    
+    
 }
 
 //selectAlldataで取り出したのを表示するメソッド
@@ -95,6 +117,7 @@
 //    
 //    _memberArray = [[self selectAllData:nil] mutableCopy];
     
+    //もとは_memberList
     _memberList = [[self selectAllData:nil] mutableCopy];
 }
 
@@ -165,8 +188,8 @@
     Member *member = _ary[indexPath.row];
     cell.textLabel.text = member.name;
     
-    cell.textLabel.textColor = [UIColor whiteColor];
-    cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
+    cell.textLabel.textColor = [UIColor blackColor];
+    cell.textLabel.font = [UIFont fontWithName:@"Walt Disney Script v4.1" size:35.0];
     
     return cell;
 }
@@ -190,10 +213,22 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         }
         
         //表示側も配列からデータを削除することでCoreDataの状態を反映
-        [_memberArray removeObjectAtIndex:indexPath.row]; // 削除ボタンが押された行のデータを配列から削除します。
+        NSLog(@"_memberList = %@",_memberList);
+        //もとはmemberList
+        [_memberList removeObjectAtIndex:indexPath.row]; // 削除ボタンが押された行のデータを配列から削除します。
+        NSLog(@"indexPath = %@",indexPath);
+//        _ary = _memberList;
+        
         
         //テーブルビューからも消します
-        [self.secondTable deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        [self.secondTable deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self.secondTable reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self.secondTable reloadData];
+        
+        
+        
         
         
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {

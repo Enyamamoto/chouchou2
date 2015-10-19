@@ -80,7 +80,15 @@
     NSLog(@"_appDelegete.absentAry = %@",_appDelegete.absentAry);
     
     
+    //背景画像設定
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"chouchou.png"] drawInRect:self.view.bounds];
+    UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    
 }
+
 
 ////Coredataに入ってるデータを取ってくる
 //- (NSArray *)selectAllData:(NSDictionary *)options {

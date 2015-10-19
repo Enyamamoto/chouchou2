@@ -38,7 +38,24 @@
     
     _mainTable.separatorColor = [UIColor whiteColor];
     
+    //背景画像
+    UIImage *background = [UIImage imageNamed:@"chouchou.png"];
+    self.mainTable.backgroundView = [[UIImageView alloc] initWithImage:background];
     
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"chouchou.png"] drawInRect:self.view.bounds];
+    UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    
+}
+
+
+//tableViewとcellの背景を透明にしてる
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor = [UIColor clearColor];
+    tableView.backgroundColor = [UIColor clearColor];
 }
 
 
@@ -104,6 +121,8 @@
     if(cell == nil){
         //セルの初期化とスタイルの決定
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifer];
+        
+
     }
     
     //CoreDataにデータを保存する
@@ -113,11 +132,15 @@
     cell.textLabel.text = [NSString stringWithFormat:@"%@",group.groupName];
     
     //文字色・フォント・サイズ設定
-    cell.textLabel.textColor = [UIColor whiteColor];
-    cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20.0];
+    cell.textLabel.textColor = [UIColor blackColor];
+    cell.textLabel.font = [UIFont fontWithName:@"Walt Disney Script v4.1" size:35.0];
     
-    return cell;
+    
+        return cell;
 }
+
+
+
 
 //ラインみたいなスライド削除
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
@@ -138,7 +161,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         }
         
         //表示側も配列からデータを削除することでCoreDataの状態を反映
+        NSLog(@"_groupArray = %@",_groupArray);
         [_groupArray removeObjectAtIndex:indexPath.row]; // 削除ボタンが押された行のデータを配列から削除します。
+        
         
         //テーブルビューからも消します
         [self.mainTable deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
