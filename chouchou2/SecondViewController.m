@@ -18,7 +18,7 @@
     NSMutableArray *_memberList;
     AppDelegate *_appdelegete;
     
-    NSArray *_ary;
+    NSMutableArray *_ary;
 }
 
 @end
@@ -52,6 +52,8 @@
     
     _secondTable.separatorColor = [UIColor whiteColor];
     
+    _secondTable.rowHeight = 57.0;
+    
     
     //背景画像
     UIImage *background = [UIImage imageNamed:@"chouchou.png"];
@@ -71,7 +73,7 @@
     
     //tomoの配列にrowがはいる
     //array型に変換
-    _ary = [group.member allObjects];
+    _ary = [[group.member allObjects] mutableCopy];
     NSLog(@"ary = %@",_ary);
     
 
@@ -96,7 +98,8 @@
     NSLog(@"gr = %@",group);
     
     //tomoの配列にrowがはいる
-    _ary = [group.member allObjects];
+    //編集可能な状態で代入される
+    _ary = [[group.member allObjects] mutableCopy];
     NSLog(@"ary = %@",_ary);
 
     
@@ -215,7 +218,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         //表示側も配列からデータを削除することでCoreDataの状態を反映
         NSLog(@"_memberList = %@",_memberList);
         //もとはmemberList
-        [_memberList removeObjectAtIndex:indexPath.row]; // 削除ボタンが押された行のデータを配列から削除します。
+        //_aryをmutable型に変換して代入
+        [_ary removeObjectAtIndex:indexPath.row]; // 削除ボタンが押された行のデータを配列から削除します。
         NSLog(@"indexPath = %@",indexPath);
 //        _ary = _memberList;
         
@@ -223,13 +227,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         //テーブルビューからも消します
 //        [self.secondTable deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
-        [self.secondTable reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        [self.secondTable reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
         [self.secondTable reloadData];
-        
-        
-        
-        
+
         
         
         

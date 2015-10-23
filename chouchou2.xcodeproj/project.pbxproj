@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E510E53B1BD5EEA8003A0DF4 /* chouchou_result.png in Resources */ = {isa = PBXBuildFile; fileRef = E510E53A1BD5EEA8003A0DF4 /* chouchou_result.png */; };
 		E52174DC1BD4901500B2EF77 /* Walt_Disney_Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E52174DB1BD4901500B2EF77 /* Walt_Disney_Script.ttf */; };
 		E52174E01BD4902500B2EF77 /* chouchou.png in Resources */ = {isa = PBXBuildFile; fileRef = E52174DE1BD4902500B2EF77 /* chouchou.png */; };
 		E52174E11BD4902500B2EF77 /* disney.png in Resources */ = {isa = PBXBuildFile; fileRef = E52174DF1BD4902500B2EF77 /* disney.png */; };
@@ -44,6 +45,7 @@
 		1B08ED54A110004E07B1223C /* Pods-chouchou2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chouchou2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chouchou2/Pods-chouchou2.debug.xcconfig"; sourceTree = "<group>"; };
 		5054CF0B05D59015A4C862A8 /* Pods-chouchou2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chouchou2.release.xcconfig"; path = "Pods/Target Support Files/Pods-chouchou2/Pods-chouchou2.release.xcconfig"; sourceTree = "<group>"; };
 		C11E847EE8B1449977094506 /* libPods-chouchou2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-chouchou2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E510E53A1BD5EEA8003A0DF4 /* chouchou_result.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chouchou_result.png; sourceTree = "<group>"; };
 		E52174DB1BD4901500B2EF77 /* Walt_Disney_Script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Walt_Disney_Script.ttf; sourceTree = "<group>"; };
 		E52174DE1BD4902500B2EF77 /* chouchou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chouchou.png; sourceTree = "<group>"; };
 		E52174DF1BD4902500B2EF77 /* disney.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disney.png; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		E52174DD1BD4902500B2EF77 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				E510E53A1BD5EEA8003A0DF4 /* chouchou_result.png */,
 				E52174DE1BD4902500B2EF77 /* chouchou.png */,
 				E52174DF1BD4902500B2EF77 /* disney.png */,
 			);
@@ -296,6 +299,7 @@
 			files = (
 				E52174DC1BD4901500B2EF77 /* Walt_Disney_Script.ttf in Resources */,
 				E52174E01BD4902500B2EF77 /* chouchou.png in Resources */,
+				E510E53B1BD5EEA8003A0DF4 /* chouchou_result.png in Resources */,
 				E53C61B91BC1519100C0C156 /* Main.storyboard in Resources */,
 				E53C61BE1BC1519100C0C156 /* LaunchScreen.xib in Resources */,
 				E535D53D1BD0986C00AE46A5 /* SignPainter.otf in Resources */,
@@ -438,9 +442,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "c6f950cd-f744-42f4-85fb-c77e49d32069";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -462,7 +467,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: geechs asia Pte. Ltd. (6NXL5PSQBG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: geechs asia Pte. Ltd. (6NXL5PSQBG)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -475,8 +481,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "c6f950cd-f744-42f4-85fb-c77e49d32069";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -509,7 +516,6 @@
 		E53C61D11BC1519100C0C156 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -528,7 +534,6 @@
 		E53C61D21BC1519100C0C156 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

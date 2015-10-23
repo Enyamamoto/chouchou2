@@ -153,10 +153,10 @@
             MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
             options.delegate = self;
             //スワイプのときの文字
-            options.likedText = @"出席";
+            options.likedText = @"○";
             //カラー指定
             options.likedColor = [UIColor blueColor];
-            options.nopeText = @"欠席";
+            options.nopeText = @"×";
             options.onPan = ^(MDCPanState *state){
                 if (state.thresholdRatio == 1.f && state.direction == MDCSwipeDirectionLeft) {
                     //                NSLog(@"Let go now to delete the photo!");
@@ -164,7 +164,7 @@
             };
             
             //MDCSwipeToChooseViewの位置
-            CGRect frame = CGRectMake(0, 0, 360, 300);
+            CGRect frame = CGRectMake(0, 0, 320, 280);
             //初期化。初期化したときの位置がframe
             _mdview = [[MDCSwipeToChooseView alloc]initWithFrame:frame options:options];
             //ここで左上ではなくて、画面自体のセンターに指定してる

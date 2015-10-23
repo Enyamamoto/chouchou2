@@ -18,18 +18,25 @@
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Chou Chou" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
                     <rect key="frame" x="-46" y="136" width="441" height="66"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="66" id="fpm-5h-wUJ"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="WaltDisneyScriptv4.1" family="Walt Disney Script v4.1" pointSize="75"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="disney.png" translatesAutoresizingMaskIntoConstraints="NO" id="FhV-yh-5AN">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disney.png" translatesAutoresizingMaskIntoConstraints="NO" id="FhV-yh-5AN">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="0.82415601156158336" blue="0.0082019386710514564" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
+                <constraint firstItem="FhV-yh-5AN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BV7-vf-3NN"/>
                 <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstAttribute="trailing" secondItem="FhV-yh-5AN" secondAttribute="trailing" id="nfa-Av-i44"/>
+                <constraint firstAttribute="bottom" secondItem="FhV-yh-5AN" secondAttribute="bottom" id="uWM-P1-YQK"/>
+                <constraint firstItem="FhV-yh-5AN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="y2i-op-R0T"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

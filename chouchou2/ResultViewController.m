@@ -38,6 +38,9 @@
     _appDelegete.attendAry = [NSMutableArray array];
     _appDelegete.absentAry = [NSMutableArray array];
     
+    _resultTable.rowHeight = 57.0;
+    _resultTable.sectionHeaderHeight = 57.0;
+    
     //背景画像
     UIImage *background = [UIImage imageNamed:@"chouchou.png"];
     self.resultTable.backgroundView = [[UIImageView alloc] initWithImage:background];
@@ -62,19 +65,35 @@
     return 2;
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    NSString *title;
-    switch (section) {
-        case 0:
-            title = @"出席";
-            break;
-        case 1:
-            title = @"欠席";
-            break;
-        default:
-            break;
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    NSString *title;
+//    switch (section) {
+//        case 0:
+//            title = @"Presence";
+//            break;
+//        case 1:
+//            title = @"Absence";
+//            break;
+//        default:
+//            break;
+//    }
+//    return title;
+//}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UILabel *l = [UILabel new];
+    if (section == 0) {
+    l.backgroundColor = [UIColor grayColor];
+    l.font = [UIFont fontWithName:@"Walt Disney Script v4.1" size:35.0];
+    l.text = [NSString stringWithFormat:@"Presence"];
+    l.textColor = [UIColor whiteColor];
+    }else{
+        l.backgroundColor = [UIColor grayColor];
+        l.font = [UIFont fontWithName:@"Walt Disney Script v4.1" size:35.0];
+        l.text = [NSString stringWithFormat:@"Absence"];
+        l.textColor = [UIColor whiteColor];
     }
-    return title;
+    return l;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -140,7 +159,7 @@
                 break;
             case 1:
                 cell.textLabel.text = @"Nothing";
-                cell.textLabel.textColor = [UIColor grayColor];
+                cell.textLabel.textColor = [UIColor blackColor];
                 cell.textLabel.font = [UIFont fontWithName:@"Walt Disney Script v4.1" size:35.0];
                 break;
             default:
@@ -150,7 +169,7 @@
         switch (indexPath.section) {
             case 0:
                 cell.textLabel.text = @"Nothing";
-                cell.textLabel.textColor = [UIColor grayColor];
+                cell.textLabel.textColor = [UIColor blackColor];
                 cell.textLabel.font = [UIFont fontWithName:@"Walt Disney Script v4.1" size:35.0];
                 break;
             case 1:

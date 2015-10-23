@@ -38,6 +38,8 @@
     
     _mainTable.separatorColor = [UIColor whiteColor];
     
+    _mainTable.rowHeight = 57.0;
+    
     //背景画像
     UIImage *background = [UIImage imageNamed:@"chouchou.png"];
     self.mainTable.backgroundView = [[UIImageView alloc] initWithImage:background];
@@ -176,7 +178,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 //タップした時の処理
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%liがタップされたよ",indexPath.row);
     _appdelegate.iPath = (int)indexPath.row;
     NSLog(@"デリゲートのiPath = %i",_appdelegate.iPath);
     //遷移したい先のviewcontrollerを指定

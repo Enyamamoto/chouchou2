@@ -2,6 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="n2E-7j-Mpf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Walt_Disney_Script.ttf">
@@ -29,7 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tqR-5S-QUQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tqR-5S-QUQ">
                                 <rect key="frame" x="50" y="90" width="246" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -37,18 +40,7 @@
                                     <action selector="endGroupText:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="XaS-Tb-d6T"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5d6-Kc-GIw">
-                                <rect key="frame" x="310" y="90" width="57" height="30"/>
-                                <fontDescription key="fontDescription" name="WaltDisneyScriptv4.1" family="Walt Disney Script v4.1" pointSize="33"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tapAddBtn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="d6p-cm-hL0"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lue-6E-Q65">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lue-6E-Q65">
                                 <rect key="frame" x="0.0" y="134" width="375" height="533"/>
                                 <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,8 +52,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zaB-On-L1c" id="i0b-aL-WVf">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9EZ-2j-FkF">
-                                                    <rect key="frame" x="331" y="8" width="22" height="22"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9EZ-2j-FkF">
+                                                    <rect key="frame" x="331" y="11" width="22" height="22"/>
                                                     <state key="normal">
                                                         <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -70,14 +62,50 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9EZ-2j-FkF" secondAttribute="bottom" constant="6" id="HUq-uu-RXz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9EZ-2j-FkF" secondAttribute="bottom" constant="3" id="KFd-zB-PQ2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9EZ-2j-FkF" secondAttribute="trailing" constant="14" id="lct-FO-Frb"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9EZ-2j-FkF" secondAttribute="bottom" constant="5" id="nZ9-me-aIH"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9EZ-2j-FkF" secondAttribute="bottom" constant="4" id="pIG-GV-xp5"/>
+                                                <constraint firstItem="9EZ-2j-FkF" firstAttribute="top" secondItem="i0b-aL-WVf" secondAttribute="topMargin" constant="4" id="vgs-Q1-sPE"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="HUq-uu-RXz"/>
+                                                    <exclude reference="KFd-zB-PQ2"/>
+                                                    <exclude reference="pIG-GV-xp5"/>
+                                                    <exclude reference="vgs-Q1-sPE"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5d6-Kc-GIw">
+                                <rect key="frame" x="310" y="90" width="57" height="30"/>
+                                <fontDescription key="fontDescription" name="WaltDisneyScriptv4.1" family="Walt Disney Script v4.1" pointSize="33"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapAddBtn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="d6p-cm-hL0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tqR-5S-QUQ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="26" id="3zl-bM-9pS"/>
+                            <constraint firstItem="lue-6E-Q65" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Aye-Ui-qGs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5d6-Kc-GIw" secondAttribute="trailing" constant="5" id="EKx-bk-0D0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lue-6E-Q65" secondAttribute="trailing" constant="-16" id="Jxg-Yf-sCb"/>
+                            <constraint firstItem="tqR-5S-QUQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="30" id="dyl-0s-zE4"/>
+                            <constraint firstItem="5d6-Kc-GIw" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="15" id="mu5-28-M3Z"/>
+                            <constraint firstItem="5d6-Kc-GIw" firstAttribute="leading" secondItem="tqR-5S-QUQ" secondAttribute="trailing" constant="14" id="qZd-f3-XZK"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Chou Chou groups" id="Cwh-Em-s98"/>
@@ -111,7 +139,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Nei-dp-fz2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Nei-dp-fz2">
                                 <rect key="frame" x="0.0" y="136" width="375" height="531"/>
                                 <prototypes>
                                     <tableViewCell alpha="0.14999999999999999" contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Adl-Yf-4cg">
@@ -124,7 +152,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8aD-3W-Pb4">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8aD-3W-Pb4">
                                 <rect key="frame" x="78" y="69" width="219" height="32.5"/>
                                 <fontDescription key="fontDescription" name="WaltDisneyScriptv4.1" family="Walt Disney Script v4.1" pointSize="34"/>
                                 <state key="normal" title="+Add New Member">
@@ -137,6 +165,13 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="8aD-3W-Pb4" firstAttribute="leading" secondItem="iu3-uA-3i6" secondAttribute="leadingMargin" constant="35" id="EpP-gd-QPu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8aD-3W-Pb4" secondAttribute="trailing" constant="35" id="JiA-YF-7G6"/>
+                            <constraint firstItem="8aD-3W-Pb4" firstAttribute="top" secondItem="uen-YC-S9i" secondAttribute="bottom" constant="15" id="eAI-a8-sON"/>
+                            <constraint firstItem="Nei-dp-fz2" firstAttribute="leading" secondItem="iu3-uA-3i6" secondAttribute="leadingMargin" constant="-16" id="fGI-Wv-hPa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Nei-dp-fz2" secondAttribute="trailing" constant="-16" id="obb-Ne-8Bj"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -159,7 +194,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wYA-71-FeO">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wYA-71-FeO">
                                 <rect key="frame" x="51" y="158" width="272" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -167,13 +202,11 @@
                                     <action selector="endNameText:" destination="RkR-fV-i6n" eventType="editingDidEndOnExit" id="tyB-c5-upE"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Member" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14B-aW-7kf">
-                                <rect key="frame" x="105" y="28" width="164" height="41"/>
-                                <fontDescription key="fontDescription" name="WaltDisneyScriptv4.1" family="Walt Disney Script v4.1" pointSize="38"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51g-0s-fF0">
-                                <rect key="frame" x="71" y="228" width="241" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51g-0s-fF0">
+                                <rect key="frame" x="41" y="193" width="293" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4JP-Sw-gHX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="WaltDisneyScriptv4.1" family="Walt Disney Script v4.1" pointSize="30"/>
                                 <state key="normal" title="Choose Camera Roll">
                                     <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -182,22 +215,14 @@
                                     <action selector="tapCameraBtn:" destination="RkR-fV-i6n" eventType="touchUpInside" id="B4h-RH-tCp"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTS-kD-zqj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTS-kD-zqj">
                                 <rect key="frame" x="71" y="295" width="240" height="223"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdT-Xy-CA2">
-                                <rect key="frame" x="71" y="588" width="53" height="30"/>
-                                <fontDescription key="fontDescription" name="WaltDisneyScriptv4.1" family="Walt Disney Script v4.1" pointSize="30"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tapSaveBtn:" destination="RkR-fV-i6n" eventType="touchUpInside" id="m9m-l1-8pI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BpF-wV-zDu">
-                                <rect key="frame" x="241" y="588" width="88" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BpF-wV-zDu">
+                                <rect key="frame" x="35" y="588" width="88" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="zwk-IH-gvX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="WaltDisneyScriptv4.1" family="Walt Disney Script v4.1" pointSize="30"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="1" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -207,14 +232,77 @@
                                     <action selector="cancelBtn:" destination="RkR-fV-i6n" eventType="touchUpInside" id="RCu-Ux-wzg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACf-2B-csv">
-                                <rect key="frame" x="153" y="109" width="69" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACf-2B-csv">
+                                <rect key="frame" x="153" y="99" width="69" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="7qw-HA-QGm"/>
+                                    <constraint firstAttribute="width" constant="69" id="THL-O5-CZJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="WaltDisneyScriptv4.1" family="Walt Disney Script v4.1" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New Member" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14B-aW-7kf">
+                                <rect key="frame" x="56" y="28" width="262" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="vzM-th-Ye5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WaltDisneyScriptv4.1" family="Walt Disney Script v4.1" pointSize="38"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdT-Xy-CA2">
+                                <rect key="frame" x="258" y="588" width="53" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ahP-bp-sVv"/>
+                                    <constraint firstAttribute="width" constant="53" id="m5E-Jj-AqL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WaltDisneyScriptv4.1" family="Walt Disney Script v4.1" pointSize="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapSaveBtn:" destination="RkR-fV-i6n" eventType="touchUpInside" id="m9m-l1-8pI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="QTS-kD-zqj" secondAttribute="trailing" constant="15" id="0bz-JD-ij4"/>
+                            <constraint firstItem="51g-0s-fF0" firstAttribute="leading" secondItem="QTS-kD-zqj" secondAttribute="leading" id="2OX-WE-wb7"/>
+                            <constraint firstItem="51g-0s-fF0" firstAttribute="top" secondItem="wYA-71-FeO" secondAttribute="bottom" constant="20" id="2T3-pF-YGU"/>
+                            <constraint firstItem="mdT-Xy-CA2" firstAttribute="baseline" secondItem="BpF-wV-zDu" secondAttribute="firstBaseline" id="6nG-28-LZx"/>
+                            <constraint firstItem="14B-aW-7kf" firstAttribute="centerX" secondItem="dtw-Nx-mUw" secondAttribute="centerX" id="F1F-30-pm3"/>
+                            <constraint firstItem="nnH-fm-uae" firstAttribute="top" secondItem="mdT-Xy-CA2" secondAttribute="bottom" constant="10" id="Ity-x6-oOJ"/>
+                            <constraint firstItem="ACf-2B-csv" firstAttribute="centerX" secondItem="14B-aW-7kf" secondAttribute="centerX" id="J8f-5Q-DtN"/>
+                            <constraint firstItem="mdT-Xy-CA2" firstAttribute="leading" secondItem="QTS-kD-zqj" secondAttribute="leading" id="Kh2-8t-nSB"/>
+                            <constraint firstItem="QTS-kD-zqj" firstAttribute="leading" secondItem="dtw-Nx-mUw" secondAttribute="leadingMargin" constant="15" id="Qey-ff-6Xf"/>
+                            <constraint firstItem="QTS-kD-zqj" firstAttribute="centerX" secondItem="51g-0s-fF0" secondAttribute="centerX" id="T78-7L-HqC"/>
+                            <constraint firstItem="ACf-2B-csv" firstAttribute="centerX" secondItem="wYA-71-FeO" secondAttribute="centerX" id="VEk-bd-yQv"/>
+                            <constraint firstItem="QTS-kD-zqj" firstAttribute="top" secondItem="51g-0s-fF0" secondAttribute="bottom" constant="10" id="VU3-oA-gUe"/>
+                            <constraint firstItem="51g-0s-fF0" firstAttribute="leading" secondItem="dtw-Nx-mUw" secondAttribute="leadingMargin" constant="25" id="Vv7-Ge-nwW"/>
+                            <constraint firstItem="ACf-2B-csv" firstAttribute="top" secondItem="14B-aW-7kf" secondAttribute="bottom" constant="30" id="Zv3-nE-2eS"/>
+                            <constraint firstItem="14B-aW-7kf" firstAttribute="leading" secondItem="dtw-Nx-mUw" secondAttribute="leadingMargin" constant="40" id="bu0-eR-lav"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BpF-wV-zDu" secondAttribute="trailing" constant="30" id="eir-6R-x2Z"/>
+                            <constraint firstItem="wYA-71-FeO" firstAttribute="leading" secondItem="dtw-Nx-mUw" secondAttribute="leadingMargin" constant="35" id="hJa-JH-Geh"/>
+                            <constraint firstItem="wYA-71-FeO" firstAttribute="top" secondItem="ACf-2B-csv" secondAttribute="bottom" constant="10" id="hir-vm-Kuz"/>
+                            <constraint firstItem="BpF-wV-zDu" firstAttribute="baseline" secondItem="mdT-Xy-CA2" secondAttribute="firstBaseline" id="k8h-CL-YSb"/>
+                            <constraint firstItem="14B-aW-7kf" firstAttribute="top" secondItem="p9P-ih-1x3" secondAttribute="bottom" constant="8" symbolic="YES" id="lLJ-Gu-vFa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="51g-0s-fF0" secondAttribute="trailing" constant="25" id="mc1-EL-fR9"/>
+                            <constraint firstItem="BpF-wV-zDu" firstAttribute="leading" secondItem="dtw-Nx-mUw" secondAttribute="leadingMargin" constant="20" id="neS-0f-oAO"/>
+                            <constraint firstItem="mdT-Xy-CA2" firstAttribute="top" secondItem="QTS-kD-zqj" secondAttribute="bottom" constant="70" id="oAl-Na-C0f"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mdT-Xy-CA2" secondAttribute="trailing" constant="20" id="oEX-RX-Uba"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="14B-aW-7kf" secondAttribute="trailing" constant="40" id="rIq-EY-KZx"/>
+                            <constraint firstItem="BpF-wV-zDu" firstAttribute="top" secondItem="mdT-Xy-CA2" secondAttribute="top" id="tY6-Q1-rXc"/>
+                            <constraint firstItem="BpF-wV-zDu" firstAttribute="top" secondItem="QTS-kD-zqj" secondAttribute="bottom" constant="15" id="wpF-IM-4m2"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="eir-6R-x2Z"/>
+                                <exclude reference="Kh2-8t-nSB"/>
+                                <exclude reference="oAl-Na-C0f"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -240,9 +328,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLf-05-5Fl">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLf-05-5Fl">
                                 <rect key="frame" x="13" y="260" width="349" height="63"/>
-                                <fontDescription key="fontDescription" name="WaltDisneyScriptv4.1" family="Walt Disney Script v4.1" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="WaltDisneyScriptv4.1" family="Walt Disney Script v4.1" pointSize="36"/>
                                 <size key="titleShadowOffset" width="0.0" height="-1"/>
                                 <state key="normal" title="Do you take attendance??">
                                     <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -251,13 +339,27 @@
                                     <action selector="tapAttendanceBtn:" destination="WsU-NZ-11u" eventType="touchUpInside" id="YWz-1A-VDD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Member Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COs-d5-BBl">
-                                <rect key="frame" x="90" y="495" width="209" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Member Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COs-d5-BBl">
+                                <rect key="frame" x="83" y="494" width="209" height="39"/>
                                 <fontDescription key="fontDescription" name="WaltDisneyScriptv4.1" family="Walt Disney Script v4.1" pointSize="34"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="COs-d5-BBl" firstAttribute="leading" secondItem="0Cq-ma-RVQ" secondAttribute="leadingMargin" constant="40" id="5jy-8g-iNh"/>
+                            <constraint firstItem="eLf-05-5Fl" firstAttribute="top" secondItem="Qvg-LP-6yw" secondAttribute="bottom" constant="180" id="CaN-sQ-yi7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eLf-05-5Fl" secondAttribute="trailing" constant="-8" id="G6P-C7-ZMQ"/>
+                            <constraint firstItem="gk4-v6-ZkA" firstAttribute="top" secondItem="COs-d5-BBl" secondAttribute="bottom" constant="55" id="Nl7-Qz-S1P"/>
+                            <constraint firstItem="eLf-05-5Fl" firstAttribute="leading" secondItem="0Cq-ma-RVQ" secondAttribute="leadingMargin" constant="-8" id="iwo-Iy-5dC"/>
+                            <constraint firstItem="COs-d5-BBl" firstAttribute="leading" secondItem="0Cq-ma-RVQ" secondAttribute="leadingMargin" constant="67" id="vxB-GH-P21"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="COs-d5-BBl" secondAttribute="trailing" constant="67" id="xGq-C9-4bo"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5jy-8g-iNh"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -281,7 +383,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="X9X-pM-wQ0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="X9X-pM-wQ0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="eaS-je-oHp">
@@ -295,6 +397,10 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="X9X-pM-wQ0" secondAttribute="trailing" constant="-16" id="eam-73-nDl"/>
+                            <constraint firstItem="X9X-pM-wQ0" firstAttribute="leading" secondItem="kpx-pw-swe" secondAttribute="leadingMargin" constant="-16" id="tZ6-UH-eLH"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
